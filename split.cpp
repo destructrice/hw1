@@ -11,13 +11,29 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
-
+#include <cstddef>
 /* Add a prototype for a helper function here if you need */
+void append(Node*& head, int a) {
+    Node n = new Node(a, *head);
+    *head = n;
+}
+Node remove(Node*&head){
+    if(head == nullptr){
+        return nullptr;
+    }
+    Node*temp=head;
+    head= head->next;
+    return reinterpret_cast<Node &&>(temp);
+}
 
-void split(Node*& in, Node*& odds, Node*& evens)
-{
-  /* Add code here */
-// WRITE YOUR CODE HERE
+void split(Node*& in, Node*& odds, Node*& evens) {
+    Node* curr = in;
+    if(curr->value % 2 == 0){
+        append(evens, remove())
+    }
+    *odds = curr;
+    *evens = curr->next;
+
 
 }
 
