@@ -1,0 +1,1 @@
+Just compile and run as usual, the main function should test everything
